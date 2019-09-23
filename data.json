@@ -1,0 +1,18 @@
+{
+    "Id": "Policy1569211177316",
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Stmt1569211175940",
+        "Action": "s3:*",
+        "Effect": "Deny",
+        "Resource": "arn:aws:s3:::${bucket_name}",
+        "Condition": {
+          "StringNotEquals": {
+            "aws:SourceVpce": "${vpce}"
+          }
+        },
+        "Principal": "*"
+      }
+    ]
+}
